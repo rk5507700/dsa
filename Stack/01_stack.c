@@ -26,6 +26,23 @@ int isFull(struct stack * s){
     
 }
 
+void push(struct stack* s, int data){
+    
+    s->arr[s->top +1] = data;
+    s->top += 1;
+}
+
+void show(struct stack* s){
+    if(isEmpty(s)){
+        printf("Sorry! Your list is empty.\n");
+    } else {
+        int i = 0;
+        while(i <= s->top){
+            printf("%d", s->arr[i]);
+        }
+    }
+}
+
 
 int main(){
     struct stack *s1;
@@ -33,11 +50,7 @@ int main(){
     s1->size = 10;
     s1->top = -1;
     s1->arr = (int*)malloc(10 * sizeof(int));
-    if(isEmpty(s1)){
-        printf("The stack is empty.\n");
-    } else {
-        printf("The stack is not empty.\n");
-    }
+    
 
     return 0;
 }
