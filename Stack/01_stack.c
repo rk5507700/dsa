@@ -44,6 +44,7 @@ void show(struct stack* s){
         int i = 0;
         while(i <= s->top){
             printf("%d", s->arr[i]);
+            i++;
         }
     }
 }
@@ -60,10 +61,11 @@ int main(){
     while(i != 0){
         printf("Enter the data: ");
         int nana;
+        printf("%d", s1->top);
         scanf("%d", &nana);
         i = push(s1, nana);
     }
-    show(s1);
+   show(s1); 
     
 
     return 0;
