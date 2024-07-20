@@ -37,15 +37,25 @@ int push(struct stack* s, int data){
     }
 }
 
+void pop(struct stack* s){
+    int i = s->top;
+    if(isEmpty(s)){
+        printf("Can't pop, Your list is already empty.\n");
+    } else {
+        s->arr[i] = '\0';
+    }
+}
+
 void show(struct stack* s){
     if(isEmpty(s)){
         printf("Sorry! Your list is empty.\n");
     } else {
         int i = 0;
         while(i <= s->top){
-            printf("%d", s->arr[i]);
+            printf("%d  ", s->arr[i]);
             i++;
         }
+        printf("\n");
     }
 }
 
@@ -65,8 +75,15 @@ int main(){
         scanf("%d", &nana);
         i = push(s1, nana);
     }
-   show(s1); 
-    
-
+    i =1;
+    show(s1);
+    while(i == 1){
+        printf("Do you want to Pop?[Y == 1/N == 0] : ");
+        scanf("%d", &i);
+        if(i == 1){
+            pop(s1);
+            show(s1);
+        }
+    }
     return 0;
 }
