@@ -29,6 +29,7 @@ int isEmpty(struct stack *s){
 
 int main(){
     struct stack *s1;
+    s1 = (struct stack*)malloc(sizeof(struct stack));
     s1->size = 10;
     s1->top = -1;
     s1->arr = (int*)malloc(10 * sizeof(int));
