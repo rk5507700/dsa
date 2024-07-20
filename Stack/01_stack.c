@@ -42,7 +42,7 @@ void pop(struct stack* s){
     if(isEmpty(s)){
         printf("Can't pop, Your list is already empty.\n");
     } else {
-        s->arr[i] = '\0';
+        s->top = s->top-1;
     }
 }
 
