@@ -17,7 +17,7 @@ int isEmpty(struct stack *s){
     
 }
 int isFull(struct stack * s){
-    if (s->top == (s->size -1))
+    if (s->top == ((s->size) -1))
     {
         return 1;
     } else {
@@ -26,10 +26,15 @@ int isFull(struct stack * s){
     
 }
 
-void push(struct stack* s, int data){
-    
-    s->arr[s->top +1] = data;
-    s->top += 1;
+int push(struct stack* s, int data){
+    if(isFull(s)){
+        printf("Your stack is full.\n");
+        return 0;
+    } else {
+        s->arr[s->top +1] = data;
+        s->top += 1;
+        return 1;
+    }
 }
 
 void show(struct stack* s){
@@ -50,6 +55,15 @@ int main(){
     s1->size = 10;
     s1->top = -1;
     s1->arr = (int*)malloc(10 * sizeof(int));
+
+    int i = 1;
+    while(i != 0){
+        printf("Enter the data: ");
+        int nana;
+        scanf("%d", &nana);
+        i = push(s1, nana);
+    }
+    show(s1);
     
 
     return 0;
