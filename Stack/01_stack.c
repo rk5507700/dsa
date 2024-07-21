@@ -1,12 +1,13 @@
 #include<stdio.h>
 #include<stdlib.h>
-
+// Basic definition of stack 
 struct stack{
     int size;
     int top;
     int* arr;
 };
 
+// Defining the function / method for checking if the list is empty
 int isEmpty(struct stack *s){
     if (s->top == -1)
     {
@@ -16,6 +17,8 @@ int isEmpty(struct stack *s){
     }
     
 }
+
+// Defining the function / method for checking if the list is full
 int isFull(struct stack * s){
     if (s->top == ((s->size) -1))
     {
@@ -26,6 +29,7 @@ int isFull(struct stack * s){
     
 }
 
+// Defining the function for pushing an element on the stack 
 int push(struct stack* s, int data){
     if(isFull(s)){
         printf("Your stack is full.\n");
@@ -37,6 +41,7 @@ int push(struct stack* s, int data){
     }
 }
 
+// Defining the function for poping out an element from the element
 void pop(struct stack* s){
     int i = s->top;
     if(isEmpty(s)){
@@ -46,6 +51,7 @@ void pop(struct stack* s){
     }
 }
 
+// Defining the function for traversal of the stack or peeking into the stack
 void show(struct stack* s){
     if(isEmpty(s)){
         printf("Sorry! Your list is empty.\n");
