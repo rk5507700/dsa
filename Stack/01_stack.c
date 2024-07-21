@@ -52,9 +52,10 @@ void pop(struct stack* s){
 }
 
 // Defining the function for traversal of the stack or peeking into the stack
-void show(struct stack* s){
+int show(struct stack* s){
     if(isEmpty(s)){
         printf("Sorry! Your list is empty.\n");
+        return 0;
     } else {
         int i = 0;
         while(i <= s->top){
@@ -62,6 +63,7 @@ void show(struct stack* s){
             i++;
         }
         printf("\n");
+        return 1;
     }
 }
 
@@ -69,15 +71,15 @@ void show(struct stack* s){
 int main(){
     struct stack *s1;
     s1 = (struct stack*)malloc(sizeof(struct stack));
-    s1->size = 10;
+    s1->size = 5;
     s1->top = -1;
-    s1->arr = (int*)malloc(10 * sizeof(int));
+    s1->arr = (int*)malloc(5 * sizeof(int));
 
     int i = 1;
     while(i != 0){
         printf("Enter the data: ");
         int nana;
-        printf("%d", s1->top);
+        printf("%d : ", s1->top);
         scanf("%d", &nana);
         i = push(s1, nana);
     }
@@ -88,7 +90,7 @@ int main(){
         scanf("%d", &i);
         if(i == 1){
             pop(s1);
-            show(s1);
+            i = show(s1);
         }
     }
     return 0;
