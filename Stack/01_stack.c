@@ -53,7 +53,7 @@ void pop(struct stack* s){
     }
 }
 
-// Defining the function for traversal of the stack or peeking into the stack
+// Defining the function for traversal of the stack
 int show(struct stack* s){
     if(isEmpty(s)){
         printf("Sorry! Your list is empty.\n");
