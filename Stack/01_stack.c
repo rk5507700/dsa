@@ -48,6 +48,7 @@ void pop(struct stack* s){
         printf("Can't pop, Your list is already empty.\n");
     } else {
         s->top = s->top-1;
+        printf("Popped %d from the stack.\n", s->arr[s->top+1]);
     }
 }
 
