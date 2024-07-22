@@ -32,10 +32,11 @@ int isFull(struct stack * s){
 // Defining the function for pushing an element on the stack 
 int push(struct stack* s, int data){
     if(isFull(s)){
-        printf("Your stack is full.\n");
+        printf("Error! Stack Overflow.\n");
         return 0;
     } else {
         s->arr[s->top +1] = data;
+        printf("Pushed %d successfully.\n", data);
         s->top += 1;
         return 1;
     }
@@ -45,7 +46,7 @@ int push(struct stack* s, int data){
 void pop(struct stack* s){
     int i = s->top;
     if(isEmpty(s)){
-        printf("Can't pop, Your list is already empty.\n");
+        printf("Error! Stack underflow.\n");
     } else {
         s->top = s->top-1;
         printf("Popped %d from the stack.\n", s->arr[s->top+1]);
@@ -87,7 +88,7 @@ int main(){
     i =1;
     show(s1);
     while(i == 1){
-        printf("Do you want to Pop?[Y == 1/N == 0] : ");
+        printf("Do you want to Pop?[Y == 1/Anything else for exit.] : ");
         scanf("%d", &i);
         if(i == 1){
             pop(s1);
