@@ -32,7 +32,7 @@ int isFull(struct stack * s){
 // Defining the function for pushing an element on the stack 
 int push(struct stack* s, int data){
     if(isFull(s)){
-        printf("Error! Stack Overflow.\n");
+        printf("Error! Stack Overflow.\n ");
         return 0;
     } else {
         s->arr[s->top +1] = data;
@@ -77,8 +77,22 @@ int show(struct stack* s){
         return sp->top - i +1;
     }
 }*/
+
+int stackTop(struct stack* s){
+    if(isEmpty(s)){
+        return -1;
+    } else
+        return s->arr[s->top];
+}
+
+int stackBottom(struct stack * s){
+    if(isEmpty(s)){
+        return -1;
+    } else
+        return s->arr[0];
+}
 int main(){
-    struct stack *s1;
+    struct stack* s1;
     s1 = (struct stack*)malloc(sizeof(struct stack));
     s1->size = 5;
     s1->top = -1;
@@ -88,7 +102,7 @@ int main(){
     while(i != 0){
         printf("Enter the data: ");
         int nana;
-        printf("%d : ", s1->top);
+        printf("%d : ", s1->top+1);
         scanf("%d", &nana);
         i = push(s1, nana);
     }
@@ -103,6 +117,6 @@ int main(){
         }
     }
     int j = show(s1);
-    printf(" The index is %d value is ", j); //s1->arr[j]);
+    printf(" The index is %d value is %d", j, s1->arr[j]);
     return 0;
 }
