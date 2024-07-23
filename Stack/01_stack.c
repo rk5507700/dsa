@@ -61,7 +61,7 @@ int show(struct stack* s){
     } else {
         int i = 0;
         while(i <= s->top){
-            printf("%d  ", s->arr[i]);
+            printf("%d  ", s->arr[s->top -i]);
             i++;
         }
         printf("\n");
@@ -69,7 +69,14 @@ int show(struct stack* s){
     }
 }
 
-
+// Defining the function/method for peek operation
+/*int peek(struct stack* sp, int i){
+    if(isEmpty(sp) || (sp->top-i < 0)){
+        return -1;
+    } else {
+        return sp->top - i +1;
+    }
+}*/
 int main(){
     struct stack *s1;
     s1 = (struct stack*)malloc(sizeof(struct stack));
@@ -95,5 +102,7 @@ int main(){
             i = show(s1);
         }
     }
+    int j = show(s1);
+    printf(" The index is %d value is ", j); //s1->arr[j]);
     return 0;
 }
