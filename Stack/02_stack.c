@@ -1,58 +1,74 @@
-// Stack using Linked lists
 #include<stdio.h>
 #include<stdlib.h>
 
 struct node{
     int data;
-    struct node* prv;
     struct node* next;
 };
 
-int isEmpty(struct node * top){
+// Empty operation for stack
+int isEmpty(struct node* top){
     if(top == NULL){
         return 1;
-    } else {
+    } else 
         return 0;
-    }
-
 }
 
 int isFull(struct node* top){
     struct node* p = (struct node*)malloc(sizeof(struct node));
     if(p == NULL){
         return 1;
-    } else {
+    } else 
         return 0;
-    }
 }
 
-struct node* push(struct node*top, int data){
-    struct node * top1 = NULL;
+// Push method for stack
+struct node* push(struct node* top, int data){
+    struct node*p;
     if(isFull(top)){
-        printf("Stack overflow.\n");
+        return top;
+    } else{
+        p = (struct node*)malloc(sizeof(struct node));
+        p->next = top;
+        p->data = data;
+        top = p;
+        return top;
+    }
+
+
+}
+
+// Pop method for stack
+
+struct node* pop(struct node* top){
+    struct node* p;
+    if(isEmpty(top)){
+        printf("Stack underflow.\n");
         return top;
     } else {
-        top1 = (struct node*)malloc(sizeof(struct node));
-        top1->data = data;
-        top1->prv = top;
-        top1->next = NULL;
-        return top1;
+        p = top;
+        printf("Popped out %d from stack.\n", p->data);
+        top = top->next;
+        free(p);
+        return top;
     }
 }
 
 int main(){
     struct node* top = NULL;
-    int i  = 0;
-    while(i<10){
-        int n;
-        printf("Enter a data : ");
-        scanf("%d", &n);
-        top = push(top, n);
+    printf("\n\n\n\n");
+    top = push(top, 1);
+    top = push(top, 2);
+    top = push(top, 3);
+    top = push(top, 4);
+    top = push(top, 23);
+    top = push(top, 24);
+    printf("%d\n", top->data);
+    while(!isEmpty(top)){
+        top = pop(top);
         printf("%d\n", top->data);
-        i++;
     }
-
+    printf("\n\n\n\n");
     return 0;
     
-
 }
