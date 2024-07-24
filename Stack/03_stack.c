@@ -42,18 +42,26 @@ struct node* push(struct node* top, int data){
 // Method for popping out the element from the stack
 struct node* pop(struct node* top){
     if(isEmpty(top)){
-        return top;
+        return NULL;
     } else {
         printf("Popped %d from the stack.\n", top->data);
         top = top->next;
+        if(top == NULL){
+            return NULL;
+        } else {
         return top;
+        }
     }
 }
 int main(){
     struct node* top;
     top = push(top, 56);
+    top = push(top, 6);
+    top = push(top, 5);
     printf("\n %d\n ", top->data);
-    top = pop(top);
+    while(top != NULL){
+        top = pop(top);
+    }
     printf("%d", top->data);
 
     return 0;

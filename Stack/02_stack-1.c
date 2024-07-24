@@ -11,7 +11,7 @@ int isEmpty(struct node* top){
     if(top == NULL){
         return 1;
     } else {
-        
+
         return 0;
     }
 }
@@ -29,9 +29,8 @@ int isFull(struct node* top){
 // Push method for stack
 struct node* push(struct node* top, int data){
     struct node* p = (struct node*)malloc(sizeof(struct node));;
-    if(p == NULL){
-        printf("Stack overflow.\n");
-        return top;
+    if(top == NULL){
+        return NULL;
     } else{
         p->next = top;
         p->data = data;
@@ -54,10 +53,7 @@ struct node* pop(struct node* top){
         printf("Popped out %d from stack.\n", p->data);
         top = top->next;
         free(p);
-        if(top != NULL){
-
-            printf("%d\n", top->data);
-        }
+        printf("%d\n", top->data);
         return top;
     }
 }
@@ -89,7 +85,7 @@ int main(){
     top = push(top, 24);
     printf("%d\n", top->data);
 
-    
+    /*
     int i = 0;
     while(top != NULL){
         if(top == NULL){
@@ -97,8 +93,8 @@ int main(){
         } else
             top = pop(top);
     }
-    
-   
+    */
+   int i = 3;
 
     printf("Value at position %d is : %d", i, peek(top, i));
     printf("\n\n");
