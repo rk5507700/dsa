@@ -29,9 +29,9 @@ int isFull(struct node* top){
 // Push method for stack
 struct node* push(struct node* top, int data){
     struct node* p = (struct node*)malloc(sizeof(struct node));;
-    if(top == NULL){
-        return NULL;
-    } else{
+    if(p == NULL){
+        return top;
+    } else {
         p->next = top;
         p->data = data;
         return p;
@@ -46,37 +46,37 @@ struct node* pop(struct node* top){
     struct node* p = NULL;
     if(isEmpty(top)){
         printf("Stack underflow.\n");
-        return NULL;
+        return top;
 
     } else {
         p = top;
         printf("Popped out %d from stack.\n", p->data);
         top = top->next;
         free(p);
-        printf("%d\n", top->data);
+        if(top != NULL)
+            printf("%d\n", top->data);
+        else 
+            printf("Stack Underflow.\n");
         return top;
     }
 }
 
 // Peek method for stack
-int peek(struct node* top, int pos){
+void peek(struct node* top, int pos){
     struct node* p = top;
     for(int i = 0; i<pos-1 && p != NULL; i++){
         p = p->next;
     }
     if(p != NULL){
         int i = p->data;
-        return i;
-    }
-    else {
-        return -1;
+        printf("Value at position %d is : %d",pos, i);
     }
 }
 
 int main(){
     struct node* top = NULL;
     int j;
-    printf("\n\n\n\n");
+    printf("\n");
     top = push(top, 1);
     top = push(top, 2);
     top = push(top, 3);
@@ -85,7 +85,7 @@ int main(){
     top = push(top, 24);
     printf("%d\n", top->data);
 
-    /*
+    
     int i = 0;
     while(top != NULL){
         if(top == NULL){
@@ -93,10 +93,9 @@ int main(){
         } else
             top = pop(top);
     }
-    */
-   int i = 3;
-
-    printf("Value at position %d is : %d", i, peek(top, i));
+    
+   i = 3;
+    peek(top, i);
     printf("\n\n");
     return 0;
     
