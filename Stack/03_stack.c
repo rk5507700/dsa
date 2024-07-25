@@ -20,8 +20,8 @@ int isFull(){
     struct node* p = (struct node*)malloc(sizeof(struct node));
     if(p == NULL){
         return 1;
-        free(p);
     } else {
+        free(p);
         return 0;
     }
 }
@@ -34,35 +34,39 @@ struct node* push(struct node* top, int data){
         struct node* p = (struct node*)malloc(sizeof(struct node));
         p->data = data;
         p->next = top;
-        return p;
+        top = p;
+        return top;
     }
 
 }
 
 // Method for popping out the element from the stack
 struct node* pop(struct node* top){
-    if(isEmpty(top)){
-        return NULL;
+    if(top == NULL){
+        return top;
     } else {
         printf("Popped %d from the stack.\n", top->data);
-        top = top->next;
         if(top == NULL){
-            return NULL;
+            return top;
         } else {
-        return top;
+            top = top->next;
+            return top;
         }
     }
 }
 int main(){
-    struct node* top;
+    struct node* top = NULL;
     top = push(top, 56);
     top = push(top, 6);
     top = push(top, 5);
     printf("\n %d\n ", top->data);
-    while(top != NULL){
+    int res = 1;
+    while(res != 0){
         top = pop(top);
+        if(top == NULL)
+            res = 0;
     }
-    printf("%d", top->data);
+    printf("Stack Underflow.\n");
 
     return 0;
 }
