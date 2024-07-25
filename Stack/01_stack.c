@@ -56,7 +56,7 @@ void pop(struct stack* s){
 // Defining the function for traversal of the stack
 int show(struct stack* s){
     if(isEmpty(s)){
-        printf("Sorry! Your list is empty.\n");
+        printf("Stack Underflow.\n");
         return 0;
     } else {
         int i = 0;
@@ -116,7 +116,5 @@ int main(){
             i = show(s1);
         }
     }
-    int j = show(s1);
-    printf(" The index is %d value is %d", j, s1->arr[j]);
     return 0;
 }
