@@ -104,13 +104,37 @@ int main(){
     int i = 0;
     int p_count = 0, pp_count = 0;
     while(demo[i] != '\0'){
-        if(demo[i] == ')'){
-            if(s1->top != -1)
+        if(demo[i] == ')' ){
+            if(s1->top != -1 && s1->arr[s1->top] == '(')
                 pop(s1);
+            else 
+                break;
             pp_count += 1;
         }
-        if(demo[i] == '('){
+        if(demo[i] == ']' ){
+            if(s1->top != -1 && s1->arr[s1->top] == '[')
+                pop(s1);
+            else 
+                break;
+            pp_count += 1;
+        }
+        if(demo[i] == '}' ){
+            if(s1->top != -1 && s1->arr[s1->top] == '{')
+                pop(s1);
+            else 
+                break;
+            pp_count += 1;
+        }
+        if(demo[i] == '(' ){
             push(s1, '(');
+            p_count += 1;
+        }
+        if(demo[i] == '[' ){
+            push(s1, '[');
+            p_count += 1;
+        }
+        if(demo[i] == '{' ){
+            push(s1, '{');
             p_count += 1;
         }
         i++;
