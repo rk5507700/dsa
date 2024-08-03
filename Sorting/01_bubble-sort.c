@@ -7,7 +7,7 @@ void printArray(int * A, int n){
     printf("\n");
 }
 
-int strlength(int* A){
+int strlength(int A[]){
     int i = 0;
     while(A[i] != '\0'){
         i++;
