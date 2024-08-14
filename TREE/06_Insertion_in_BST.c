@@ -1,5 +1,16 @@
 /*
 Insertion in Binary search tree
+
+                8
+               / \
+              3   10
+             / \    \
+            /   \    \
+           /     \    \
+          1     6      14
+               / \     /
+              /   \   / 
+            (4)   (7)(13)
 */
 
 #include <stdio.h>
