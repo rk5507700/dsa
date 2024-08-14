@@ -92,8 +92,11 @@ int main()
     p7->left = p8;
 
     BSTtraversal(root);
+    printf("Enter the element to insert: ");
+    int Insert_element;
+    scanf("%d", &Insert_element);
 
-    Insert(root, 5);
+    Insert(root, 6);
     printf("\n");
     BSTtraversal(root);
 
