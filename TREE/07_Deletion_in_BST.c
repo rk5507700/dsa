@@ -65,13 +65,9 @@ struct node* delete(struct node* root, int data){
     else {
         //when the node is found
         struct node* iPre = inOrderPredecessor(root); 
-        if(iPre->right == NULL){
-            root->data = root->right->data;
-            root->right = delete(root->right, root->right->data);
-        } else {
-            root->data = iPre->data;
-            root->left = delete(root->left, iPre->data);
-        }
+        root->data = iPre->data;
+        root->left = delete(root->left, iPre->data);
+        
     }
     return root;
 }
